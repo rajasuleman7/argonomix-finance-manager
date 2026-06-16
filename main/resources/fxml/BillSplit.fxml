@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.BillSplitController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <!-- Header -->
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Bill Split" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="+ Create Group" onAction="#handleCreateGroup" styleClass="primary-button" />
+         </HBox>
+         
+         <!-- Groups -->
+         <VBox styleClass="card" spacing="15">
+            <Label text="Bill Split Groups" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <VBox fx:id="groupsContainer" spacing="15" />
+         </VBox>
+      </VBox>
+   </top>
+</BorderPane>
+
+

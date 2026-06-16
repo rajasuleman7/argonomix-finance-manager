@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.TransactionController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <!-- Header -->
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Transactions" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Import CSV" onAction="#handleImportCSV" styleClass="secondary-button" />
+            <Button text="Export CSV" onAction="#handleExportCSV" styleClass="secondary-button" />
+            <Button text="+ Add Transaction" onAction="#handleAddTransaction" styleClass="primary-button" />
+         </HBox>
+         
+         <!-- Filters -->
+         <VBox styleClass="card" spacing="15" padding="15">
+            <GridPane hgap="15" vgap="15">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+               </columnConstraints>
+               
+               <TextField fx:id="searchField" promptText="Search transactions..." GridPane.columnIndex="0" />
+               <ComboBox fx:id="categoryFilter" promptText="All Categories" GridPane.columnIndex="1" />
+               <ComboBox fx:id="typeFilter" promptText="All Types" GridPane.columnIndex="2" />
+               <ComboBox fx:id="dateRangeFilter" promptText="All Time" GridPane.columnIndex="3" />
+            </GridPane>
+            
+            <HBox spacing="15" fx:id="customDateRange" visible="false">
+               <Label text="Start Date:" />
+               <DatePicker fx:id="customStartDate" />
+               <Label text="End Date:" />
+               <DatePicker fx:id="customEndDate" />
+            </HBox>
+         </VBox>
+         
+         <!-- Transactions Table -->
+         <VBox styleClass="card" spacing="10">
+            <TableView fx:id="transactionsTable" prefHeight="400">
+               <columns>
+                  <TableColumn fx:id="dateColumn" text="Date" prefWidth="120" />
+                  <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="250" />
+                  <TableColumn fx:id="categoryColumn" text="Category" prefWidth="120" />
+                  <TableColumn fx:id="amountColumn" text="Amount" prefWidth="120" />
+                  <TableColumn fx:id="typeColumn" text="Type" prefWidth="100" />
+               </columns>
+            </TableView>
+            
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+               <Button text="Edit" onAction="#handleEditTransaction" styleClass="secondary-button" />
+               <Button text="Delete" onAction="#handleDeleteTransaction" styleClass="secondary-button" style="-fx-background-color: #ef4444; -fx-text-fill: white;" />
+            </HBox>
+         </VBox>
+         
+         <!-- Summary -->
+         <GridPane hgap="20">
+            <columnConstraints>
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            
+            <VBox style="-fx-background-color: #d1fae5; -fx-background-radius: 8px; -fx-padding: 15px;" GridPane.columnIndex="0">
+               <Label text="Total Income" style="-fx-text-fill: #065f46; -fx-font-size: 12px;" />
+               <Label fx:id="totalIncomeLabel" text="$0.00" style="-fx-text-fill: #10b981; -fx-font-size: 24px; -fx-font-weight: bold;" />
+            </VBox>
+            
+            <VBox style="-fx-background-color: #fee2e2; -fx-background-radius: 8px; -fx-padding: 15px;" GridPane.columnIndex="1">
+               <Label text="Total Expenses" style="-fx-text-fill: #991b1b; -fx-font-size: 12px;" />
+               <Label fx:id="totalExpensesLabel" text="$0.00" style="-fx-text-fill: #ef4444; -fx-font-size: 24px; -fx-font-weight: bold;" />
+            </VBox>
+         </GridPane>
+      </VBox>
+   </top>
+</BorderPane>
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.BudgetController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <!-- Header -->
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Budgets" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Apply Template" onAction="#handleApplyTemplate" styleClass="secondary-button" />
+            <Button text="Create Budget" onAction="#handleCreateBudget" styleClass="primary-button" />
+         </HBox>
+         
+         <!-- Overspending Alert -->
+         <VBox fx:id="overspendingAlert" visible="false" style="-fx-background-color: #fee2e2; -fx-background-radius: 8px; -fx-padding: 15px; -fx-border-color: #ef4444; -fx-border-width: 1px; -fx-border-radius: 8px;">
+            <Label text="⚠ Budget Exceeded" style="-fx-text-fill: #991b1b; -fx-font-weight: bold;" />
+            <Label text="You've exceeded your budget in one or more categories." style="-fx-text-fill: #991b1b;" />
+         </VBox>
+         
+         <!-- Budget Overview -->
+         <VBox styleClass="card" spacing="15">
+            <Label text="Current Budgets" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <VBox fx:id="budgetsContainer" spacing="15" />
+         </VBox>
+         
+         <!-- Budget vs Actual Chart -->
+         <VBox styleClass="card" spacing="15">
+            <Label text="Budget vs Actual Spending" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <BarChart fx:id="budgetChart" prefHeight="300">
+               <xAxis>
+                  <CategoryAxis label="Category" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Amount ($)" />
+               </yAxis>
+            </BarChart>
+         </VBox>
+      </VBox>
+   </top>
+</BorderPane>
+
+

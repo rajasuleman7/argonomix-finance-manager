@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.BuyCalculatorController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox styleClass="card" spacing="15" padding="20">
+         <Label text="Should I Buy This?" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+         
+         <VBox spacing="10">
+            <Label text="Item Price ($)" />
+            <TextField fx:id="itemPriceField" promptText="Enter price" />
+            <Button fx:id="calculateButton" text="Calculate" onAction="#handleCalculate" styleClass="primary-button" />
+         </VBox>
+         
+         <VBox fx:id="resultContainer" spacing="10" visible="false">
+            <Label fx:id="recommendationLabel" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            
+            <GridPane hgap="15" vgap="10">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+               </columnConstraints>
+               
+               <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <Label text="Hours of Work" style="-fx-text-fill: #6b7280; -fx-font-size: 12px;" />
+                  <Label fx:id="hoursOfWorkLabel" style="-fx-font-weight: bold;" />
+               </VBox>
+               
+               <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <Label text="Days to Delay Goal" style="-fx-text-fill: #6b7280; -fx-font-size: 12px;" />
+                  <Label fx:id="daysToDelayLabel" style="-fx-font-weight: bold;" />
+               </VBox>
+               
+               <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <Label text="% of Income" style="-fx-text-fill: #6b7280; -fx-font-size: 12px;" />
+                  <Label fx:id="percentOfIncomeLabel" style="-fx-font-weight: bold;" />
+               </VBox>
+            </GridPane>
+            
+            <Label fx:id="reasoningLabel" wrapText="true" style="-fx-padding: 10px; -fx-background-color: #f3f4f6; -fx-background-radius: 8px;" />
+            
+            <HBox spacing="10">
+               <Button text="I Bought It" onAction="#handleBought" styleClass="primary-button" HBox.hgrow="ALWAYS" />
+               <Button text="Saved It" onAction="#handleSaved" styleClass="secondary-button" HBox.hgrow="ALWAYS" />
+            </HBox>
+         </VBox>
+      </VBox>
+   </top>
+</BorderPane>
+
+

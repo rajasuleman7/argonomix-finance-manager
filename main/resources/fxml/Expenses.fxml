@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.ExpenseController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <!-- Header -->
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Expense Tracking" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <ComboBox fx:id="dateRangeCombo" />
+         </HBox>
+         
+         <!-- Tabs -->
+         <TabPane fx:id="expenseTabs">
+            <!-- Overview Tab -->
+            <Tab fx:id="overviewTab" text="Overview" closable="false">
+               <VBox spacing="20" padding="20">
+                  <GridPane hgap="20" vgap="20">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     
+                     <VBox styleClass="card" spacing="15" GridPane.columnIndex="0">
+                        <Label text="Spending by Category" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                        <PieChart fx:id="categoryPieChart" />
+                     </VBox>
+                     
+                     <VBox styleClass="card" spacing="15" GridPane.columnIndex="1">
+                        <Label text="Category Breakdown" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                        <VBox fx:id="categorySpendingContainer" spacing="10" />
+                     </VBox>
+                  </GridPane>
+               </VBox>
+            </Tab>
+            
+            <!-- Trends Tab -->
+            <Tab fx:id="trendsTab" text="Trends" closable="false">
+               <VBox styleClass="card" spacing="15" padding="20">
+                  <Label text="Spending Trend" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+                  <LineChart fx:id="spendingTrendChart" prefHeight="400">
+                     <xAxis>
+                        <CategoryAxis label="Date" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="Amount ($)" />
+                     </yAxis>
+                  </LineChart>
+               </VBox>
+            </Tab>
+            
+            <!-- Insights Tab -->
+            <Tab fx:id="insightsTab" text="Insights" closable="false">
+               <VBox styleClass="card" spacing="15" padding="20">
+                  <Label text="Category Insights" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+                  <VBox fx:id="insightsContainer" spacing="15" />
+               </VBox>
+            </Tab>
+         </TabPane>
+      </VBox>
+   </top>
+</BorderPane>
+
+

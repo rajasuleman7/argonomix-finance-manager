@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.LayoutController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <left>
+      <VBox styleClass="sidebar" spacing="10" prefWidth="250" minWidth="250">
+         <VBox spacing="10" padding="20">
+            <Label text="ARGonomix" styleClass="app-title" style="-fx-font-size: 24px;" />
+            <Label fx:id="userNameLabel" styleClass="stat-label" />
+         </VBox>
+         
+         <Separator />
+         
+         <VBox spacing="5" padding="10">
+            <Button fx:id="dashboardButton" text="Dashboard" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="transactionsButton" text="Transactions" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="budgetsButton" text="Budgets" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="expensesButton" text="Expenses" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="goalsButton" text="Goals" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="investmentsButton" text="Investments" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="billSplitButton" text="Bill Split" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="challengesButton" text="Challenges" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="healthScoreButton" text="Health Score" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="reportsButton" text="Reports" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="subscriptionsButton" text="Subscriptions" styleClass="sidebar-button" maxWidth="Infinity" />
+            <Button fx:id="settingsButton" text="Settings" styleClass="sidebar-button" maxWidth="Infinity" />
+         </VBox>
+         
+         <Separator />
+         
+         <VBox spacing="5" padding="10">
+            <Button fx:id="addTransactionButton" text="+ Add Transaction" styleClass="primary-button" maxWidth="Infinity" />
+            <Button fx:id="logoutButton" text="Logout" styleClass="secondary-button" maxWidth="Infinity" />
+         </VBox>
+      </VBox>
+   </left>
+   
+   <center>
+      <VBox fx:id="mainContainer" />
+   </center>
+</BorderPane>
+
+

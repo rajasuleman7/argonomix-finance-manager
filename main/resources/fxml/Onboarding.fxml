@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.OnboardingController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <center>
+      <VBox styleClass="card" spacing="20" padding="40" maxWidth="600" alignment="CENTER">
+         <HBox alignment="CENTER_RIGHT">
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Skip" onAction="#handleSkip" style="-fx-text-fill: #6b7280;" />
+         </HBox>
+         
+         <ProgressIndicator fx:id="stepIndicator" />
+         <Label fx:id="stepLabel" style="-fx-text-fill: #6b7280;" />
+         
+         <VBox fx:id="onboardingContainer" spacing="20" />
+      </VBox>
+   </center>
+</BorderPane>
+
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.HealthScoreController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <!-- Header -->
+         <Label text="Financial Health Score" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+         
+         <!-- Score Display -->
+         <VBox styleClass="card" spacing="20" alignment="CENTER">
+            <Label fx:id="healthScoreLabel" text="0/100" style="-fx-font-size: 64px; -fx-font-weight: bold; -fx-text-fill: #9333ea;" />
+            <ProgressBar fx:id="healthScoreBar" prefWidth="400" prefHeight="20" />
+         </VBox>
+         
+         <!-- Breakdown -->
+         <GridPane hgap="20" vgap="20">
+            <columnConstraints>
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="0">
+               <Label text="Savings Rate" styleClass="stat-label" />
+               <Label fx:id="savingsRateScoreLabel" text="0/30" styleClass="stat-value" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="1">
+               <Label text="Budget Adherence" styleClass="stat-label" />
+               <Label fx:id="budgetAdherenceScoreLabel" text="0/25" styleClass="stat-value" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="2">
+               <Label text="Emergency Fund" styleClass="stat-label" />
+               <Label fx:id="emergencyFundScoreLabel" text="0/25" styleClass="stat-value" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="3">
+               <Label text="Debt-to-Income" styleClass="stat-label" />
+               <Label fx:id="debtToIncomeScoreLabel" text="0/20" styleClass="stat-value" />
+            </VBox>
+         </GridPane>
+         
+         <!-- Recommendations -->
+         <VBox styleClass="card" spacing="15">
+            <Label text="Recommendations" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <VBox fx:id="recommendationsContainer" spacing="10" />
+         </VBox>
+      </VBox>
+   </top>
+</BorderPane>
+
+

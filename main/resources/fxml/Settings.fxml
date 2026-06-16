@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.SettingsController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <Label text="Settings" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+         
+         <!-- Profile Settings -->
+         <VBox styleClass="card" spacing="15" padding="20">
+            <Label text="Profile" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <GridPane hgap="15" vgap="15">
+               <columnConstraints>
+                  <ColumnConstraints minWidth="150" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+               </columnConstraints>
+               
+               <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+               <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+               
+               <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+               <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               
+               <Label text="Monthly Income:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+               <TextField fx:id="monthlyIncomeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               
+               <Label text="Hourly Wage:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+               <TextField fx:id="hourlyWageField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            </GridPane>
+         </VBox>
+         
+         <!-- App Settings -->
+         <VBox styleClass="card" spacing="15" padding="20">
+            <Label text="Preferences" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <GridPane hgap="15" vgap="15">
+               <columnConstraints>
+                  <ColumnConstraints minWidth="150" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+               </columnConstraints>
+               
+               <Label text="Theme:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+               <ComboBox fx:id="themeCombo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+               
+               <Label text="Currency:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+               <ComboBox fx:id="currencyCombo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               
+               <Label text="Notifications:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+               <CheckBox fx:id="notificationsCheckbox" text="Enable notifications" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </GridPane>
+         </VBox>
+         
+         <Button fx:id="saveButton" text="Save Settings" onAction="#handleSave" styleClass="primary-button" />
+      </VBox>
+   </top>
+</BorderPane>
+
+

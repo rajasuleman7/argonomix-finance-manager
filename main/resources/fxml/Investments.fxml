@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.argonomix.controllers.InvestmentController">
+   <stylesheets>
+      <URL value="@../css/modular.css" />
+   </stylesheets>
+   
+   <top>
+      <VBox spacing="20" padding="20" styleClass="dashboard-container">
+         <!-- Header -->
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Investments" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="+ Add Investment" onAction="#handleAddInvestment" styleClass="primary-button" />
+         </HBox>
+         
+         <!-- Summary -->
+         <GridPane hgap="20">
+            <columnConstraints>
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+               <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="0">
+               <Label text="Total Invested" styleClass="stat-label" />
+               <Label fx:id="totalInvestedLabel" text="$0.00" styleClass="stat-value" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="1">
+               <Label text="Current Value" styleClass="stat-label" />
+               <Label fx:id="totalValueLabel" text="$0.00" styleClass="stat-value" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="2">
+               <Label text="Total Return" styleClass="stat-label" />
+               <Label fx:id="totalReturnLabel" text="$0.00" styleClass="stat-value" />
+            </VBox>
+         </GridPane>
+         
+         <!-- Investments Table -->
+         <VBox styleClass="card" spacing="10">
+            <TableView fx:id="investmentsTable" prefHeight="400">
+               <columns>
+                  <TableColumn fx:id="nameColumn" text="Investment Name" prefWidth="200" />
+                  <TableColumn fx:id="typeColumn" text="Type" prefWidth="150" />
+                  <TableColumn fx:id="investedColumn" text="Amount Invested" prefWidth="150" />
+                  <TableColumn fx:id="currentValueColumn" text="Current Value" prefWidth="150" />
+                  <TableColumn fx:id="returnColumn" text="Return" prefWidth="120" />
+                  <TableColumn fx:id="returnPercentColumn" text="Return %" prefWidth="100" />
+               </columns>
+            </TableView>
+            
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+               <Button text="Edit" onAction="#handleEditInvestment" styleClass="secondary-button" />
+               <Button text="Delete" onAction="#handleDeleteInvestment" styleClass="secondary-button" style="-fx-background-color: #ef4444; -fx-text-fill: white;" />
+            </HBox>
+         </VBox>
+      </VBox>
+   </top>
+</BorderPane>
+
+
